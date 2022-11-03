@@ -1,0 +1,16 @@
+de Block is multiple lines of code that are enclosed between braces i.e. everything between { and } is in one block code.
+
+
+
+for (i<-listOfNumbers;if i%2==0){
+     println(i)
+     }
+     
+     
+     def isEven(givenParam:Int):Boolean = {
+     | if(givenParam%2 == 0)
+     | true
+     | else
+     | false}
+
+
