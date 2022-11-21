@@ -1,0 +1,80 @@
+		Chapter 2: Installing Scala
+
+Exercises :
+
+1. Figure out how to install Scala on Linux in an offline setting (e.g., on a system that’s not connected to the Internet). You will encounter such scenarios extensively in professional environments due to security controls.
+2. Type scala -help at the command prompt and familiarize yourself with as many options available as possible.
+3. Try installing multiple versions of Scala on your system and investigate if there are any challenges.
+4. Research the latest versions of Scala available on the website and make a habit of going through the release notes to understand the latest enhancements in the new releases.
+
+Traduction:
+
+1. Découvrez comment installer Scala sur Linux dans un environnement hors ligne (par exemple, sur un système qui n'est pas connecté à Internet). Vous rencontrerez fréquemment de tels scénarios dans les environnements professionnels en raison des contrôles de sécurité.
+2. Tapez scala -help à l'invite de commande et familiarisez-vous avec le plus grand nombre possible d'options disponibles.
+3. Essayez d'installer plusieurs versions de Scala sur votre système et vérifiez si vous rencontrez des difficultés.
+4.S Recherchez les dernières versions de Scala disponibles sur le site Web et prenez l'habitude de consulter les notes de mise à jour pour comprendre les dernières améliorations apportées aux nouvelles versions.
+
+
+Answers :
+
+		1. Installing Scala on Linux
+		
+Before installing scala you have to make sure that java is well installed and if it is not the case do it first check it before continuing, type :
+
+----> java -version to 
+
+First, download from the Scala website the archive file (in .tgz format) of the latest version of the language: http://www.scala-lang.org/downloads.
+Then we extract the content of the archive file: 
+
+----> tar xvfz scala-2.10.0.tgz
+
+The files are extracted to the scala-2.10.0 folder. The following output of the tree command shows the file structure.
+
+----> cd scala-2.10.0
+----> tree -L 1
+		
+The executables are in the bin folder and the libraries in the lib folder. On my computer the files are in ~/tools/scala-2.10.0 on which I created the symbolic link /opt/scala since I want to be able to easily change Scala version.
+
+----> sudo ln -s ~/tools/scala/scala-2.10.0 /opt/scala
+
+Let's check the installation by displaying the Scala version:
+
+----> /opt/scala/bin/scala -version
+
+It works but it's not convenient to type the full path of the command each time the Scala interpreter is launched. To fix this I add the /opt/scala/bin folder to the system path with the following command:
+
+----> export PATH=$PATH:/opt/scala/bin
+
+By putting the previous line in the .bashrc file the executables in /opt/scala/bin will be added to the system path when logging in.
+
+----> scala
+
+		2. Type scala -help at the command prompt and familiarize yourself with as many options available as possible.
+		
+----> scala -help
+
+
+
+		3. Try installing multiple versions of Scala on your system and investigate if there are any challenges.
+		
+For system-wide installation first install cousier and then execute:
+
+----> cs install scala3-repl
+
+This will install scala 3 REPL alonsidete the scala 2 one. Now scala 3 REPL can be started with :
+
+----> scala3-repl
+
+command scala 2 REPL simply with command :
+
+----> scala
+
+for install coursier we use the command :
+
+----> curl -fl https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz | gzip -d >cs
+----> chmod +x cs
+----> ./cs setup
+
+		4. Research the latest versions of Scala available on the website and make a habit of going through the release notes to understand the latest enhancements in the new releases.
+		
+check http://www.scala-lang.org/
